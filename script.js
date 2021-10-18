@@ -8,38 +8,46 @@ function selectObject() {
 
 }
 
-function playRound(player, computer) {
+function playRound() {
+    const player = document.getElementById("playerChoice").value.toLowerCase();
+
+    const computer = computerPlay();
+
+    result.innerHTML = ""
+
+    console.log("Player chose: " + player + " --- Computer chose " + computer)
+
     if (player === computer) {
-        return "It's a tie."
+        result.innerHTML = "It's a tie."
     }
+
     if (player === "rock") {
         if (computer === "paper") {
-            return "You Lose! Paper beats Rock"
+            result.innerHTML =  "You Lose! Paper beats Rock"
         } else if (computer === "scissors") {
-            return "You Win! Rock beats Scissors"
+            result.innerHTML =  "You Win! Rock beats Scissors"
     }
     }
 
     if (player === "paper") {
         if (computer === "rock") {
-            return "You Win! Paper beats Rock"
+            result.innerHTML =  "You Win! Paper beats Rock"
         } else if (computer === "scissors") {
-            return "You Lose! Scissors beats Paper"
+            result.innerHTML =  "You Lose! Scissors beats Paper"
         }
     }
 
     if (player === "scissors") {
         if (computer === "rock") {
-            return "You Lose! Rock beats Scissors"
+            result.innerHTML =  "You Lose! Rock beats Scissors"
         } else if (computer === "paper") {
-            return "You Win! Scissors beats Paper"
+            result.innerHTML =  "You Win! Scissors beats Paper"
         }
     }
 }
 
-function testRound() {
-    const playerSelection = "rock";
-    const computerSelection = computerPlay();
-
-    console.log(playRound(playerSelection, computerSelection))
+function game() {
+    for (let i = 0; i < 5; i++) {
+        testRound()
+    }
 }
